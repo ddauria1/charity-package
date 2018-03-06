@@ -1,0 +1,11 @@
+{
+  "name": "ddauria1/charity-package",
+  "description": "UK Charity Package",
+  "minimum-stability" : "stable",
+  "authors": [
+    {
+      "name": "Danilo D'Auria",
+      "email": ""
+    }
+  ]
+}
