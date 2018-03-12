@@ -15,3 +15,6 @@ This widget will allow them to create a custom charity widget with the following
 Initially only allow payments with PayPal - add other payments method after first release
 
 
+
+-- Look at test.php file to see an usage example
+
