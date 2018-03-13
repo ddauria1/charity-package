@@ -7,34 +7,129 @@ class Base
     private $position;
     private $amountOptions;
     private $title;
+    private $description;
+    private $textButton;
+    private $donateURL;
 
+    const POS_ASIDE_CSS="
+        <style>
+        
+            #charity-aside{
+                background: #F6F5F2;
+                padding: 15px 10px;
+                border: 1px solid #CCC;
+                max-width: 50%;
+            }
+            
+            #charity-aside h2{ 
+                color: #9A3324;
+                margin-top: 0px; 
+            }
+            
+            #charity-aside #charity-button{
+                background: #DA291C;
+                color: #FFFFFF;
+                padding: 16px 20px;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: block;
+                width:  30%;
+                text-align: center;
+            }
+            
+            
+            /**
+                MEDIA QUERY
+            
+             */
+            @media only screen and (max-width:480px)  {
+                #charity-aside{ max-width: 100% }
+            }
+            
+            
+        </style>
+    ";
+
+    const POS_FOOTER_CSS="
+        <style>
+        
+            #charity-footer{
+                padding: 15px 10px;
+                max-width: 50%;
+            }
+            
+            #charity-footer h2{ 
+                color: #9A3324;
+                margin-top: 10px; 
+                float: left;
+                font-size: 18px;
+            }
+            
+            #charity-footer #charity-button{
+                background: #DA291C;
+                color: #FFFFFF;
+                padding: 16px 20px;
+                margin-left: 20px;
+                text-transform: uppercase;
+                text-decoration: none;
+                display: block;
+                float: left;
+                text-align: center;
+                font-size: 12px;
+            }
+            
+            
+            /**
+                MEDIA QUERY
+            
+             */
+            @media only screen and (max-width:480px)  {
+                #charity-aside{ max-width: 100% }
+            }
+            
+            
+        </style>
+    ";
 
     public function __construct(){
         $this->position = "aside";
         $this->amountOptions = null;
-        $this->title = "Donate";
+        $this->title = "Online Donations";
+        $this->description = "";
+        $this->textButton = "Donate";
+        $this->donateURL = "";
 
     }
 
     public function display() :string{
-        $output = "
-            <div id='charity-widget'>
-        ";
+        $output = "<div id='charity-widget'>";
 
         //TODO write code to prepare HTML template for our widget
 
         if($this->position == "aside"){
-            $output .= " 
-                <div id='charity-aside'>
-                    <h1>$this->title</h1>
-                </div>
-            ";
+            $output .= self::POS_ASIDE_CSS;
+            $output .= "<div id='charity-aside'>";
+                $output .= "<h2>$this->title</h2>";
+                if(isset($this->description) && !empty($this->description)){
+                    $output .= "<p>$this->description</p>";
+                }
+                if(isset($this->donateURL) && !empty($this->donateURL)) {
+                    $output .= "<a id='charity-button' target='_blank' href='$this->donateURL'>$this->textButton</a>";
+                }else{
+                    //TODO display error message
+                }
+            $output .= "</div>";
+
         }else{ //footer
-            $output .= " 
-                <div id='charity-footer'>
-                    <h1>$this->title</h1>
-                </div>
-            ";
+            $output .= self::POS_FOOTER_CSS;
+            $output .= "<div id='charity-footer'>";
+                $output .= "<h2>$this->title</h2>";
+                 if(isset($this->donateURL) && !empty($this->donateURL)) {
+                     $output .= "<a id='charity-button' target='_blank' href='$this->donateURL'>$this->textButton</a>";
+                 }else{
+                     //TODO display error message
+                 }
+            $output .= "</div>";
         }
 
         $output .= " </div>";
@@ -93,6 +188,54 @@ class Base
     public function setTitle(string $title){
         $this->title = $title;
     }
+
+    /**
+     * @return string
+     */
+    public function getDescription(): string{
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription(string $description): void{
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTextButton(): string{
+        return $this->textButton;
+    }
+
+    /**
+     * @param string $textButton
+     */
+    public function setTextButton(string $textButton): void{
+        $this->textButton = $textButton;
+    }
+
+    /**
+     * @return string
+     */
+    public function getdonateURL(): string{
+        return $this->donateURL;
+    }
+
+    /**
+     * @param string $donateURL
+     */
+    public function setdonateURL(string $donateURL): void{
+        $this->donateURL = $donateURL;
+    }
+
+
+
+
+
+
 
 
 
