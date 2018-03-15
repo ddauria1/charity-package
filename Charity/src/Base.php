@@ -10,6 +10,9 @@ class Base
     private $description;
     private $textButton;
     private $donateURL;
+    private $availableCauses;
+    private $causeIDSelected;
+
 
     const POS_ASIDE_CSS="
         <style>
@@ -99,12 +102,21 @@ class Base
         $this->textButton = "Donate";
         $this->donateURL = "";
 
+        //define causes
+        /*$this->availableCauses = [
+            new Cause("Save the Children"," is an international non-governmental organisation that promotes children's rights, provides relief and helps support children in developing countries","https://www.savethechildren.org.uk/","save-the-children-logo.png"),
+            new Cause('Crisis.co.uk - Homeless',"Crisis is the UK national charity for single homeless people.","https://www.crisis.org.uk/",""),
+            new Cause("Age UK","is a registered charity in the United Kingdom,[1] formed on 25 February 2009, and launched on 1 April 2009, which combines the operations of the previously separate charities Age Concern and Help the Aged to form the UK's largest charity for older people","https://www.ageuk.org.uk/","")
+        ];*/
+
+        $this->causeIDSelected = 0; // By default we will select "Save The Children" cause
+
+
     }
 
     public function display() :string{
         $output = "<div id='charity-widget'>";
 
-        //TODO write code to prepare HTML template for our widget
 
         if($this->position == "aside"){
             $output .= self::POS_ASIDE_CSS;

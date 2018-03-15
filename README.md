@@ -6,7 +6,10 @@ PHP package that allow users to easy create a tailored made charity widget.
 This widget will allow them to create a custom charity widget with the following specs:
 
 
-- Pick a cause
+- Pick a cause between:
+    . Save the Children
+    . Crisis.co.uk
+    . Age UK
 
 - Personalize: Colors, Format Widget, Position,Font-family and Size
 - Set amount range of money that a client can donate
