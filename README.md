@@ -19,5 +19,5 @@ Initially only allow payments with PayPal - add other payments method after firs
 
 
 
--- Look at test.php file to see an usage example
+-- Look at tests/index.php file to see an usage example
 
