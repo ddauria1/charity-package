@@ -8,7 +8,6 @@ class Base
     private $position;
     private $amountOptions;
     private $textButton;
-    private $donateURL;
     private $availableCauses;
     private $causeIDSelected;
 
@@ -101,9 +100,9 @@ class Base
 
         //define causes
         $this->availableCauses = [
-            new Cause("Save the Children"," is an international non-governmental organisation that promotes children's rights, provides relief and helps support children in developing countries","https://www.savethechildren.org.uk/","save-the-children-logo.png"),
-            new Cause('Crisis.co.uk - Homeless',"Crisis is the UK national charity for single homeless people.","https://www.crisis.org.uk/",""),
-            new Cause("Age UK","is a registered charity in the United Kingdom,[1] formed on 25 February 2009, and launched on 1 April 2009, which combines the operations of the previously separate charities Age Concern and Help the Aged to form the UK's largest charity for older people","https://www.ageuk.org.uk/","")
+            new Cause("Save the Children"," is an international non-governmental organisation that promotes children's rights, provides relief and helps support children in developing countries","https://www.savethechildren.org.uk/","save-the-children-logo.png","https://www.savethechildren.org.uk/donate/regular/donation-regular-00002"),
+            new Cause('Crisis.co.uk - Homeless',"Crisis is the UK national charity for single homeless people.","https://www.crisis.org.uk/","","https://www.crisis.org.uk/get-involved/donate/"),
+            new Cause("Age UK","is a registered charity in the United Kingdom,[1] formed on 25 February 2009, and launched on 1 April 2009, which combines the operations of the previously separate charities Age Concern and Help the Aged to form the UK's largest charity for older people","https://www.ageuk.org.uk/","","https://donate.ageuk.org.uk/public/donate2.aspx?content=general")
         ];
 
         $this->causeIDSelected = 0; // By default we will select "Save The Children" cause
@@ -121,12 +120,19 @@ class Base
                 $output .= self::POS_ASIDE_CSS;
                 $output .= "<div id='charity-aside'>";
                 $output .= "<h2>".$charity->getName()."</h2>";
+
+                $logo = $charity->getLogoFilename();
+                if(isset($logo) && !empty($logo)){
+                    print "<img src='../src/images/causes/logos/$logo'>";
+                }
+
                 $description = $charity->getDescription();
                 if (isset($description) && !empty($description)) {
                     $output .= "<p>$description</p>";
                 }
-                if (isset($this->donateURL) && !empty($this->donateURL)) {
-                    $output .= "<a id='charity-button' target='_blank' href='$this->donateURL'>$this->textButton</a>";
+                $donateURL = $charity->getDonateURL();
+                if (isset($donateURL) && !empty($donateURL)) {
+                    $output .= "<a id='charity-button' target='_blank' href='$donateURL'>$this->textButton</a>";
                 } else {
                     //TODO display error message
                 }
@@ -136,8 +142,9 @@ class Base
                 $output .= self::POS_FOOTER_CSS;
                 $output .= "<div id='charity-footer'>";
                 $output .= "<h2>".$charity->getName()."</h2>";
-                if (isset($this->donateURL) && !empty($this->donateURL)) {
-                    $output .= "<a id='charity-button' target='_blank' href='$this->donateURL'>$this->textButton</a>";
+                $donateURL = $charity->getDonateURL();
+                if (isset($donateURL) && !empty($donateURL)) {
+                    $output .= "<a id='charity-button' target='_blank' href='$donateURL'>$this->textButton</a>";
                 } else {
                     //TODO display error message
                 }
@@ -202,27 +209,5 @@ class Base
     public function setTextButton(string $textButton): void{
         $this->textButton = $textButton;
     }
-
-    /**
-     * @return string
-     */
-    public function getdonateURL(): string{
-        return $this->donateURL;
-    }
-
-    /**
-     * @param string $donateURL
-     */
-    public function setdonateURL(string $donateURL): void{
-        $this->donateURL = $donateURL;
-    }
-
-
-
-
-
-
-
-
 
 }

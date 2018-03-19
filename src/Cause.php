@@ -9,13 +9,15 @@ class Cause
     private $description;
     private $url;
     private $logoFilename;
+    private $donateURL;
 
 
-    public function __construct(string $name, string $description,string $url, string $logoFilename){
+    public function __construct(string $name, string $description,string $url, string $logoFilename, string $donateURL = ""){
         $this->name = $name;
         $this->description = $description;
         $this->url = $url;
         $this->logoFilename = $logoFilename;
+        $this->donateURL = $donateURL;
     }
 
     /**
@@ -50,5 +52,20 @@ class Cause
         return $this->logoFilename;
     }
 
+    /**
+     * @return string
+     */
+    public function getDonateURL(): string
+    {
+        return $this->donateURL;
+    }
+
+    /**
+     * @param string $donateURL
+     */
+    public function setDonateURL(string $donateURL): void
+    {
+        $this->donateURL = $donateURL;
+    }
 
 }

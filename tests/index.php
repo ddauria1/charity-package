@@ -5,6 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'].'/charity-package/vendor/autoload.php';
 
 use Charity\Base;
 
+$charity = new Base();
 ?>
 
 <style>
@@ -15,13 +16,7 @@ use Charity\Base;
 <h2> ASIDE VIEW</h2>
 
 <?php
-
-    $charity = new Base();
-
-    $charity->setdonateURL("https://www.savethechildren.org.uk/donate/regular/donation-regular-00002");
-
     print $charity->display();
-
 ?>
 </section>
 
