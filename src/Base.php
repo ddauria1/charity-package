@@ -20,11 +20,15 @@ class Base
                 padding: 15px 10px;
                 border: 1px solid #CCC;
                 max-width: 50%;
+                font-family: 'Arial';
+                font-size: 16px;
             }
             
             #charity-aside h2{ 
                 color: #9A3324;
-                margin-top: 0px; 
+                margin-top: 0px;
+                font-family: 'Times New Roman'; 
+                font-size: 30px;
             }
             
             #charity-aside #charity-button{
@@ -57,13 +61,16 @@ class Base
             #charity-footer{
                 padding: 15px 10px;
                 max-width: 50%;
+                font-family: 'Arial';
+                font-size: 16px;
             }
             
             #charity-footer h2{ 
                 color: #9A3324;
                 margin-top: 10px; 
                 float: left;
-                font-size: 18px;
+                font-family: 'Times New Roman'; 
+                font-size: 22px;
             }
             
             #charity-footer #charity-button{
