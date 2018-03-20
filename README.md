@@ -2,8 +2,6 @@
 
 ##### WORKING IN PROGRESS #####
 
-[![Software License][badge-license]][license]
-
 PHP package that allow to easy create a tailored made charity widget.
 The custom charity widget will contains the following possibilities:
 
