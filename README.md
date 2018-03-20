@@ -2,9 +2,10 @@
 
 ##### WORKING IN PROGRESS #####
 
-PHP package that allow users to easy create a tailored made charity widget.
-This widget will allow them to create a custom charity widget with the following specs:
+[![Software License][badge-license]][license]
 
+PHP package that allow to easy create a tailored made charity widget.
+The custom charity widget will contains the following possibilities:
 
 - Pick a cause between:
     . Save the Children
@@ -13,7 +14,6 @@ This widget will allow them to create a custom charity widget with the following
     . or Add your own one
 
 - Personalize: Colors, Format Widget, Position,Font-family and Size
-
 
 
 # Usage
