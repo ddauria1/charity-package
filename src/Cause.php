@@ -10,14 +10,18 @@ class Cause
     private $url;
     private $logoFilename;
     private $donateURL;
+    private $showLogo;
+    private $showCauseWebsiteURL;
 
 
-    public function __construct(string $name, string $description,string $url, string $logoFilename, string $donateURL = ""){
+    public function __construct(string $name, string $description,string $url, string $logoFilename, string $donateURL = "",bool $showLogo=true,bool $showCauseWebsiteURL=true){
         $this->name = $name;
         $this->description = $description;
         $this->url = $url;
         $this->logoFilename = $logoFilename;
         $this->donateURL = $donateURL;
+        $this->showLogo = $showLogo;
+        $this->showCauseWebsiteURL = $showCauseWebsiteURL;
     }
 
     /**
@@ -67,5 +71,38 @@ class Cause
     {
         $this->donateURL = $donateURL;
     }
+
+    /**
+     * @return bool
+     */
+    public function isShowLogo(): bool
+    {
+        return $this->showLogo;
+    }
+
+    /**
+     * @param bool $showLogo
+     */
+    public function setShowLogo(bool $showLogo): void
+    {
+        $this->showLogo = $showLogo;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isShowCauseWebsiteURL(): bool
+    {
+        return $this->showCauseWebsiteURL;
+    }
+
+    /**
+     * @param bool $showCauseWebsiteURL
+     */
+    public function setShowCauseWebsiteURL(bool $showCauseWebsiteURL): void
+    {
+        $this->showCauseWebsiteURL = $showCauseWebsiteURL;
+    }
+
 
 }

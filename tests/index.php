@@ -3,9 +3,7 @@
 
 require_once $_SERVER['DOCUMENT_ROOT'].'/charity-package/vendor/autoload.php';
 
-use Charity\Base;
-
-$charity = new Base();
+$charity = new Charity\Base();
 ?>
 
 <style>
@@ -15,9 +13,7 @@ $charity = new Base();
 <section>
 <h2> ASIDE VIEW</h2>
 
-<?php
-    print $charity->display();
-?>
+<?php $charity->display();  ?>
 </section>
 
 
