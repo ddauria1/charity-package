@@ -23,6 +23,11 @@ There are two types of widget format:
         <li>Footer</li>
     </ul>
 
+First Step install the package by:
+
+```
+composer require ddauria1/charity-package
+```
 
 ## Start Using it
 
