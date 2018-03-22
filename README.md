@@ -31,7 +31,7 @@ $charity = new Charity\Base();
 ```
 
 This will create a charity object using the Default Cause 0 - "Save the Children"
-If you wish to change it with something else you will need to pause the CauseID in the constructor as shown:
+If you wish to change it with something else you will need to pass the CauseID in the constructor as shown:
 
 ```
 $charity = new Charity\Base(1); // 1 - Age UK
