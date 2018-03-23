@@ -129,11 +129,7 @@ class Base
 
     }
 
-
-    /**
-     * Print the Charity Widget accordingly the format/position chosen (aside, footer)
-     */
-    public function display() :void{
+    public function getDisplay() : string{
 
         $output = self::COMMON_CSS;
         $output .= "<div id='charity-widget'>";
@@ -195,7 +191,15 @@ class Base
 
         $output .= " </div>";
 
-        print $output;
+        return $output;
+    }
+
+
+    /**
+     * Print the Charity Widget accordingly the format/position chosen (aside, footer)
+     */
+    public function display() :void{
+        print $this->getDisplay();
     }
 
     /**
